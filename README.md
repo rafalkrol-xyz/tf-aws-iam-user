@@ -64,7 +64,7 @@ resource "aws_iam_group_policy_attachment" "administrator_access" {
 
 ### USERS - START
 module "break_glass" {
-  source        = "git@github.com:rafalkrol-xyz/tf-aws-config.git?ref=v1.0.0"
+  source        = "git@github.com:rafalkrol-xyz/tf-aws-iam-user.git?ref=v1.0.0"
   name          = "break-glass"
   groups        = [aws_iam_group.administrators.name]
   force_destroy = true
@@ -103,7 +103,7 @@ provider "aws" {
 
 # NB the default tags are implicitly passed into the module: https://registry.terraform.io/providers/hashicorp/aws/latest/docs#default_tags
 module "break_glass" {
-  source        = "git@github.com:rafalkrol-xyz/tf-aws-config.git?ref=v1.0.0"
+  source        = "git@github.com:rafalkrol-xyz/tf-aws-iam-user.git?ref=v1.0.0"
   name          = "break-glass"
   groups        = [aws_iam_group.administrators.name]
   force_destroy = true
